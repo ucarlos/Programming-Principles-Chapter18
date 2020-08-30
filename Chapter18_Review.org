@@ -1,0 +1,121 @@
+#+TITLE: Chapter 18 Review
+#+AUTHOR: Ulysses Carlos
+#+DATE: January 18, 2020
+#+OPTIONS: toc:nil
+#+latex_class_options: [12pt]
+#+LaTeX_HEADER: \usepackage[T1]{fontenc}
+#+LaTeX_HEADER: \usepackage{mathpazo}
+#+LaTeX_HEADER: \linespread{1.05}
+#+LaTeX_HEADER: \usepackage[scaled]{helvet}
+#+LaTeX_HEADER: \usepackage{courier}
+# ------------------------------------------------------------------------------
+# HTML
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+#+HTML_HEAD: <style>#content{max-width:1000px;}</style>
+#+HTML_HEAD: <style>p{max-width:800px;}</style>
+#+HTML_HEAD: <style>li{max-width:800px;}</style>
+# ------------------------------------------------------------------------------
+
+
+* Questions
+** What does “Caveat emptor!” mean?
+****** It means "Let the buyer beware!", Meaning that a buyer has to be responsible for being vigilant before a purchase. I'm guessing that in this case, the programmer has to be vigilant when dealing with (implementing classes, using C-style data structures (Arrays), pointers, etc.)
+   
+** What is the default meaning of copying for class objects?
+****** Usually, it would create a pointer that refers to the object, so like if no copy constructor/assigner was defined, in this case 
+#+BEGIN_SRC c++
+Type_T a = b; 
+#+END_SRC
+a points to b.
+      
+** When is the default meaning of copying of class objects appropriate?  When is it inappropriate?
+******   Usually, the default meaning (assigning a pointer/reference to the object) is appropriate when the class object does not need to have a distinct copy of the data. (For example, if you are copying a pointer). It is NOT appropriate if the class object needs a distinct copy of another class object and if this new class object must not be reliant on data in the other class object.   
+  
+** What is a copy constructor?
+****** A Copy constructor is a constructor that takes a object of the same class type as an argument and allows a distinct copy of that object's data member to be stored in the new class object. For example suppose we have a class type T, with objects a and b. The constructor usually looks like this: 
+#+BEGIN_SRC c++
+T (T &object) { // Copy details here }
+#+END_SRC 
+You should make sure to properly allocate and deallocate memory so that no memory leaks occur. 
+
+** What is a copy assignment?
+****** A copy assignment is a defined operation to allow the contents of a class object to be copied to another class object, allowing each object to have distinct copies of the data. You have to define a operator= in order to do so and will usually look like this:
+#+BEGIN_SRC c++
+      Type_T& operator=(Type_T f){ // Copy details here}
+#+END_SRC
+Like in the copy constructor, you must make the usage of using new and delete so that you prevent any memory leaks.
+ 
+** What is the difference between copy assignment and copy initialization?
+****** Copy assignment allows copying of any class object past object creation, while copy initialization allows you to copy a already existing class object to a new class object through a copy constructor.
+
+** What is shallow copy? What is deep copy?
+****** Shallow copy is the default method of copying in which a pointer/reference is created when a class object is assigned to a another. Both objects point/refer to the same address that holds data. Any operation done on one object will reflect on the other class object.
+****** In Deep Copy, both class objects hold a distinct copy of the data, so that any change made in one object does not affect the original class object.
+
+** How does the copy of a vector compare to its source?
+****** A copy of a vector(At least the standard version of a vector) has a distinct copy of the source(A distinct copy). They have the same number of objects/values, and an operator made on the copy does not affect the source.
+   
+** What are the five “essential operations” for a class?
+****** In the book, it mentions seven, so I'll list them out:
+-  Constructors with one or more arguments
+-   A default Constructor
+-  A Copy Constructor to copy an object of the same type
+-   A Copy Assigner to copy an object of the same type (operator=)
+-   A Move Constructor to move the elements of an object of the same type
+-   A Move Assigner to move the elements of an object of the same type
+-   A Destructor to deallocate memory/resources taken up by the class object
+
+So, if you need a destructor to deallocate memory/resources, it's a good idea to define copy and move constructors and assigners.
+   
+** What is an explicit constructor? Where would you prefer one over the (default) alternative?
+
+****** An explicit constructor only allows the constructor to be called when it is (usually I think) explicitly called (i.e Type\textunderscore T a (value) instead of Type\textunderscore T a = (value) to prevent the constructor from being invoked in value to class conversion). I think a example would make better since here: If a constructor is not defined as explicit, a situation like this is valid:
+#+BEGIN_SRC c++
+// Create 10 objects instead of setting v to 10
+Vector v = 10; 
+void function_f(Vector & v);
+function_f(10); // Creates a vector with 10 objects.
+#+END_SRC
+So it implicitly allows operators like that if the constructor is not defined
+as explicit.
+
+** What operations may be invoked implicitly for a class object?
+****** Move operations/assignments where the compiler will implicitly use them when a object assignment occurs during a called function i.e:
+#+BEGIN_SRC c++
+Type_T a  = function();
+#+END_SRC
+where the object created in function() is destroyed at the end of the function's scope so the compiler? will call move the object members to the object a.
+    
+** What is an array?
+****** An array is just a chunk of memory allocated for a specific data type that usually (unless using reallloc or something) has a set size.
+
+** How do you copy an array?
+****** 
+******* You can either use a for loop to copy an array:
+#+BEGIN_SRC c++
+        for (int i = 0; i < list_len; i++) { Copy }
+#+END_SRC
+******* Use functions like memcpy or memmove (C style, for working with code
+that is basically C)
+******* Use functions like std::copy (For C++)	
+
+** How do you initialize an array?
+
+****** You can initialize an array by the following:
+#+BEGIN_SRC c++
+Data_type array[NUM];
+Data_type array[] = {[INSERT VALUES HERE]};
+#+END_SRC
+Or just declare the array and then set the values through the index.
+
+** When should you prefer a pointer argument over a reference argument? Why?
+****** Because references are immutable (You can't change what it points to) You won't be able to use a reference to traverse through a C style string or through a C-style array (With a variable specifying its length of course). This includes cases where you use a Char * pointer to deal with a C-string or if you use a Type\textunderscore T * pointer to traverse an array of type Type\textunderscore T.
+
+** What is a C-style string?
+****** A C-style string is a string that is ended with a null terminator (*\0*)
+    
+** What is a palindrome?
+****** A palindrome is a phrase or sentence where the first half of the phrase/sentence is mirrored on the second half (Such as *radar* or the number *1001*)
+
+
+
