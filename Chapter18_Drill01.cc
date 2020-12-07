@@ -48,4 +48,5 @@ int main(void){
 
     function_f(list, GA_SIZE);
 
+	//
 }
