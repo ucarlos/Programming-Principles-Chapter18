@@ -22,7 +22,7 @@ using namespace std;
 char *my_stdup(const char *str, unsigned int str_length) {
     char *temp = new char[str_length];
     for (int i = 0; i < str_length; i++)
-	*(temp + i) = *(str + i);
+		*(temp + i) = *(str + i);
 
     return temp;
 }
@@ -32,7 +32,7 @@ unsigned int my_strlen(const char *s){
     char *p = (char *) s;
     
     for (p; *p; p++)
-	continue;
+		continue;
 
     return (int)(p - s);
 }
@@ -57,7 +57,7 @@ char *my_findx(const char *s, const char *x, unsigned int max_char) {
         }
 
 	
-	if (valid) return pointer;
+		if (valid) return pointer;
     }
     
     return nullptr; // If not found.
@@ -90,7 +90,7 @@ void test_problem01(void){
     cout << "Now Testing with allocated array" << endl;
 
     char *string02 = new char[13]{'H', 'e', 'l', 'l', 'o'
-				 , ' ', 'W', 'o', 'r', 'l', 'd', '!', '?'};
+			, ' ', 'W', 'o', 'r', 'l', 'd', '!', '?'};
 
     char *temp2 = my_stdup(string02, strlen(string02));
     cout << temp2 << endl;
@@ -129,7 +129,7 @@ void test_problem03(void){
     char str[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!'};
 
     char *string02 = new char[12]{'H', 'e', 'l', 'l', 'o'
-				 , ' ', 'W', 'o', 'r', 'l', 'd', '!'};
+			, ' ', 'W', 'o', 'r', 'l', 'd', '!'};
 
     
     int result = my_strcmp(str, string02, strlen(str));

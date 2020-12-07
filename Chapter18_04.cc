@@ -23,13 +23,13 @@ char* stdup(const char *str){
     // char *pointer = (char *)str; // C-style cast
     int length;
     for (pointer; *pointer; pointer++)
-	continue;
+		continue;
     
     length = (pointer - str);
 
     char *temp = new char[length];
     for (int i = 0; i < length; i++)
-	*(temp + i) = *(str + i);
+		*(temp + i) = *(str + i);
 
     return temp;
 }
@@ -39,7 +39,7 @@ unsigned int my_strlen(const char *s){
     char *p = (char *) s;
     
     for (p; *p; p++)
-	continue;
+		continue;
 
     return (int)(p - s);
 }
@@ -54,16 +54,16 @@ char* findx(const char *s, const char *x){
     for (pointer; *pointer; pointer++){
 	    char *p1 = pointer;
 	    valid = true;
-	for (char *p2 = (char *) x; *p2; p2++){
-	    if (*(p1++) == *(p2))
-		    continue;
-	    else {
-		    valid = false;
-		    break;
-	    }
-	}
+		for (char *p2 = (char *) x; *p2; p2++){
+			if (*(p1++) == *(p2))
+				continue;
+			else {
+				valid = false;
+				break;
+			}
+		}
 	
-	if (valid) return pointer;
+		if (valid) return pointer;
     }
     
     return nullptr; // If not found.
@@ -74,10 +74,10 @@ int strcmp(const char *s1, const char *s2){
     char *p2 = (char *)s2;
 
     for (; *p1 && *p2; p1++, p2++){
-	if (*(p1) < *(p2)) return -1; // Before
-	else if (*(p1) > *(p2)) return 1; // After
-	else
-	    continue;
+		if (*(p1) < *(p2)) return -1; // Before
+		else if (*(p1) > *(p2)) return 1; // After
+		else
+			continue;
     }
 
     // Now compare str_lengths
@@ -97,7 +97,7 @@ void test_problem01(void){
     cout << "Now Testing with allocated array" << endl;
 
     char *string02 = new char[13]{'H', 'e', 'l', 'l', 'o'
-				 , ' ', 'W', 'o', 'r', 'l', 'd', '!', '?'};
+			, ' ', 'W', 'o', 'r', 'l', 'd', '!', '?'};
 
     char *temp2 = stdup(string02);
     cout << temp2 << endl;
@@ -136,7 +136,7 @@ void test_problem03(void){
     char str[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!'};
 
     char *string02 = new char[12]{'H', 'e', 'l', 'l', 'o'
-				 , ' ', 'W', 'o', 'r', 'l', 'd', '!'};
+			, ' ', 'W', 'o', 'r', 'l', 'd', '!'};
 
     
     int result = strcmp(str, string02);

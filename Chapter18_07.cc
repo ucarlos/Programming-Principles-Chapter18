@@ -74,8 +74,8 @@ int main(void){
     const char *string02 = "Bohr";
     const char *string03 = cat_dot(string01, string02);
     cout << "Combining \"" << string01 << "\" and \""
-	 << string02 << ": \""
-	 << string03 << "\"\n";
+		 << string02 << ": \""
+		 << string03 << "\"\n";
 
     
     const char *string04 = "Donald";
@@ -83,7 +83,7 @@ int main(void){
     const char *string06 = cat_dot(string04, " J. ", string05);
 
     cout << "Combining \"" << string04 << "\" and \""
-	 << string05 << "\" : \"" << string06 << "\"\n";
+		 << string05 << "\" : \"" << string06 << "\"\n";
     
     delete[] string03;
     delete[] string06;

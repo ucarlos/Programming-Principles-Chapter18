@@ -11,14 +11,14 @@ void function_f(vector<int> list){
     vector<int> lv(gv.size());
     std::copy(gv.begin(), gv.end(), lv.begin());
     for (int i : lv)
-	cout << i << " " ;
+		cout << i << " " ;
     cout << endl;
 
     vector<int> lv2(list.size());
     std::copy(list.begin(), list.end(), lv2.begin());
 
     for (int i : lv2)
-	cout << i << " ";
+		cout << i << " ";
     cout << endl;
     
 
@@ -29,7 +29,7 @@ int factorial(int n){
     int val = 1; // For 0!
 
     for (int i = n; i > 0; i--)
-	val *= i;
+		val *= i;
 
     return val;
 }

@@ -17,7 +17,7 @@ unsigned int my_strlen(const char *s){
     char *p = (char *) s;
     
     for (p; *p; p++)
-	continue;
+		continue;
 
     return (int)(p - s);
 }
@@ -28,10 +28,10 @@ int strcmp(const char *s1, const char *s2){
     char *p2 = (char *)s2;
 
     for (; *p1 && *p2; p1++, p2++){
-	if (*(p1) < *(p2)) return -1; // Before
-	else if (*(p1) > *(p2)) return 1; // After
-	else
-	    continue;
+		if (*(p1) < *(p2)) return -1; // Before
+		else if (*(p1) > *(p2)) return 1; // After
+		else
+			continue;
     }
 
     // Now compare str_lengths

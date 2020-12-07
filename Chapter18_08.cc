@@ -33,7 +33,7 @@ bool is_palindrome(const char s[], int n){
     char test[n];
     
     for (int i = 0; i < n; i++)
-	test[i] = s[n - 1 - i];
+		test[i] = s[n - 1 - i];
 
 
     return (!strncmp(s,test, n)); 
@@ -45,7 +45,7 @@ bool is_palindrome(const char *first, const char *last){
 
     char *p1 = test;
     for (char *p = (char *)last; p >= first; p--)
-	*(p1++) = *(p);
+		*(p1++) = *(p);
 
     return (!strncmp(first, test, strlen(first)));
 
@@ -66,20 +66,20 @@ int main(void){
 
 
     cout << "Results of testing \"Home\" (Char 1): "
-	 << is_palindrome(test01, test01_len)
-	 << "\n";
+		 << is_palindrome(test01, test01_len)
+		 << "\n";
     
     cout << "Results of testing \"Radar\" (Char 1): "
-	 << is_palindrome(test02, test02_len)
-	 << "\n";
+		 << is_palindrome(test02, test02_len)
+		 << "\n";
     
     cout << "Results of testing \"Home\" (Char 2): "
-	 << is_palindrome(test01, (test01 + test01_len - 1))
-	 << "\n";
+		 << is_palindrome(test01, (test01 + test01_len - 1))
+		 << "\n";
     
     cout << "Results of testing \"Radar\" (Char 2): "
-	 << is_palindrome(test02, (test02 + test02_len - 1))
-	 << "\n";
+		 << is_palindrome(test02, (test02 + test02_len - 1))
+		 << "\n";
     
 
 

@@ -20,13 +20,13 @@ char* stdup(const char *str){
     // char *pointer = (char *)str; // C-style cast
     int length;
     for (pointer; *pointer; pointer++)
-	continue;
+		continue;
     
     length = (pointer - str);
 
     char *temp = new char[length];
     for (int i = 0; i < length; i++)
-	*(temp + i) = *(str + i);
+		*(temp + i) = *(str + i);
 
     return temp;
 }

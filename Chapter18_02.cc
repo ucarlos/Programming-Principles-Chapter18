@@ -24,18 +24,18 @@ char* findx(const char *s, const char *x){
     char *pointer = (char *) s;
     
     for (pointer; *pointer; pointer++){
-	char *p1 = pointer;
-	valid = true;
-	for (char *p2 = (char *) x; *p2; p2++){
-	    if (*(p1++) == *(p2))
-		continue;
-	    else {
-		valid = false;
-		break;
-	    }
-	}
+		char *p1 = pointer;
+		valid = true;
+		for (char *p2 = (char *) x; *p2; p2++){
+			if (*(p1++) == *(p2))
+				continue;
+			else {
+				valid = false;
+				break;
+			}
+		}
 	
-	if (valid) return pointer;
+		if (valid) return pointer;
     }
     
     return nullptr; // If not found.
@@ -46,7 +46,7 @@ unsigned int my_strlen(const char *s){
     char *p = (char *) s;
     
     for (p; *p; p++)
-	continue;
+		continue;
 
     return (unsigned int)(p - s);
 }
@@ -58,11 +58,11 @@ int main(void){
     char *result = findx(string01, test);
     
     std::cout << "Is the string \"" << test << "\" in the string \""
-	      << string01 << "\" ? ";
+			  << string01 << "\" ? ";
     if (result == nullptr)
-	std::cout << "NOPE\n";
+		std::cout << "NOPE\n";
     else
-	std::cout << "Yes, at location " << &result << "\n";
+		std::cout << "Yes, at location " << &result << "\n";
 	
 
 }

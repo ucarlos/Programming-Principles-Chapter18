@@ -16,20 +16,20 @@ class vector{
     double *elem;
 public:
     explicit vector (int size){
-	this->size = size;
-	elem = new double[size];
+		this->size = size;
+		elem = new double[size];
 
     }
     
     vector(initializer_list<double> list):
-	size{list.size()}, elem{new double[size]}{
+		size{list.size()}, elem{new double[size]}{
 	    copy(list.begin(), list.end(), elem);
 	}
     
     double& operator[](int n){ return elem[n];}
 
     ~vector(){
-	delete[] elem;
+		delete[] elem;
     }
 
     int length(){ return size;}
@@ -43,8 +43,8 @@ int main(void){
     temp[2] = 3;
 
     for (int i = 0; i < temp.length(); i++)
-	cout << "temp[" << i << "] : " << temp[i]
-	     << "\n";
+		cout << "temp[" << i << "] : " << temp[i]
+			 << "\n";
 
     return 0;
 }
