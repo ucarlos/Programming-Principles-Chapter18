@@ -4,7 +4,7 @@ project(Chapter18)
 set(CMAKE_CXX_STANDARD 17)
 
 #add_executable(Chapter18 main.cpp)
-add_executable(Chapter18_Try Problem18_Try.cc)
+add_executable(Chapter18_Try Chapter18_Try01.cc)
 add_executable(Chapter18_Drill02 Chapter18_Drill02.cc)
 add_executable(Chapter18_01 Chapter18_01.cc)
 add_executable(Chapter18_02 Chapter18_02.cc)
